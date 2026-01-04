@@ -53,6 +53,10 @@ INSTALLED_APPS = [
 HEADLESS_ONLY = True 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*']
+ACCOUNT_LOGIN_METHODS = {'email'}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
