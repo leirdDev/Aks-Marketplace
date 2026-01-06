@@ -46,16 +46,22 @@ INSTALLED_APPS = [
     'allauth.headless',
     'corsheaders',
 
-
+    'accounts',
 ]
 
 # Alluth configuration
 HEADLESS_ONLY = True 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*']
 ACCOUNT_LOGIN_METHODS = {'email'}
+
+AUTH_USER_MODEL = 'accounts.CustomUser' 
+
+HEADLESS_ADAPTER = "accounts.adapters.CustomHeadlessAdapter"
+ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.CustomSignupForm'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
